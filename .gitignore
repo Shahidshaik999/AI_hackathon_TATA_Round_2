@@ -1,0 +1,20 @@
+# API Keys — NEVER commit this
+backend/.env
+
+# Python
+backend/venv/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/*.db
+backend/chroma_db/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+*.DS_Store
+
+# Submission zip
+*.zip

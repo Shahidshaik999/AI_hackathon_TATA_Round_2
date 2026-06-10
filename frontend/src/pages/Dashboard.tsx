@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
+  AreaChart, Area, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 import { AlertTriangle, Activity, Wrench, TrendingDown, Clock, CheckCircle } from 'lucide-react';
@@ -34,18 +34,15 @@ const RISK_COLORS = { critical: '#ef4444', high: '#f97316', medium: '#eab308', l
 
 export default function Dashboard() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
-  const [activity, setActivity] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
       try {
-        const [statsRes, activityRes] = await Promise.all([
+        const [statsRes] = await Promise.all([
           dashboardApi.stats(),
-          dashboardApi.activity(),
         ]);
         setStats(statsRes.data);
-        setActivity(activityRes.data);
       } catch (e) {
         console.error(e);
       } finally {
@@ -113,7 +110,7 @@ export default function Dashboard() {
           icon={<Activity size={20} />}
           label="Avg Health Score"
           value={`${stats?.equipment_health_avg?.toFixed(0) || 0}%`}
-          color={stats?.equipment_health_avg >= 70 ? 'green' : 'orange'}
+          color={(stats?.equipment_health_avg ?? 0) >= 70 ? 'green' : 'orange'}
         />
         <KPICard
           icon={<TrendingDown size={20} />}

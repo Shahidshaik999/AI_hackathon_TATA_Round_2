@@ -16,7 +16,7 @@ interface Alert {
   recommended_action?: string;
 }
 import RiskBadge from '../components/RiskBadge';
-import { AlertTriangle, CheckCircle, Eye, Filter, RefreshCw, X } from 'lucide-react';
+import { CheckCircle, Eye, Filter, RefreshCw, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { formatDistanceToNow } from 'date-fns';
 

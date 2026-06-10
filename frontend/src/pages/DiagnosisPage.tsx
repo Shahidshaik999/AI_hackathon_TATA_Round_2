@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { equipmentApi, diagnosisApi, sensorApi } from '../api';
+import { equipmentApi, diagnosisApi } from '../api';
 import MarkdownRenderer from '../components/MarkdownRenderer';
 
 interface Equipment {
@@ -56,7 +56,6 @@ export default function DiagnosisPage() {
   const [result, setResult] = useState<DiagnosisResult | null>(null);
   const [history, setHistory] = useState<any[]>([]);
   const [feedback, setFeedback] = useState(0);
-  const [activeTab, setActiveTab] = useState<'diagnosis' | 'history'>('diagnosis');
 
   useEffect(() => {
     equipmentApi.list().then(r => setEquipment(r.data));
@@ -88,7 +87,6 @@ export default function DiagnosisPage() {
         fault_description: faultDesc || undefined,
       });
       setResult(res.data);
-      setActiveTab('diagnosis');
       toast.success('Diagnosis complete');
       // Refresh history
       diagnosisApi.history(selectedEquipment).then(r => setHistory(r.data));

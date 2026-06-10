@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api';
-import { Package, AlertTriangle, CheckCircle, Clock, RefreshCw, Plus, Edit2 } from 'lucide-react';
+import { Package, AlertTriangle, Clock, RefreshCw, Plus, Edit2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface SparePart {

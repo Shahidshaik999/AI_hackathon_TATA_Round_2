@@ -24,7 +24,7 @@ interface SensorReading {
 }
 import HealthGauge from '../components/HealthGauge';
 import RiskBadge from '../components/RiskBadge';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Plus, Activity, TrendingUp, Wrench, Search } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -275,7 +275,6 @@ export default function EquipmentPage() {
                       <YAxis tick={{ fontSize: 9, fill: '#6b7280' }} />
                       <Tooltip
                         contentStyle={{ background: '#1f2937', border: '1px solid #374151', borderRadius: 8, fontSize: 11 }}
-                        formatter={(val: number, name: string) => [val?.toFixed(2), sensorType]}
                       />
                       <Line
                         type="monotone"

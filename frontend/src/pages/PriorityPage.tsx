@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api';
-import { TrendingUp, AlertTriangle, RefreshCw, Activity, CheckCircle, Clock } from 'lucide-react';
+import { TrendingUp, AlertTriangle, RefreshCw, CheckCircle } from 'lucide-react';
 import RiskBadge from '../components/RiskBadge';
 import HealthGauge from '../components/HealthGauge';
 import toast from 'react-hot-toast';
